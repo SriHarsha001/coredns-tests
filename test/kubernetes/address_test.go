@@ -41,11 +41,8 @@ var dnsTestCasesA = []test.Case{
 		},
 	},
 	{ // By default, pod queries are disabled, so a pod query should return NXDOMAIN
-		Qname: "10-20-0-101.test-1.pod.cluster.local.", Qtype: dns.TypeA,
+		Qname: "test.reddog.microsoft.com.", Qtype: dns.TypeA,
 		Rcode: dns.RcodeNameError,
-		Ns: []dns.RR{
-			test.SOA("cluster.local.        303     IN      SOA     ns.dns.cluster.local. hostmaster.cluster.local. 1499347823 7200 1800 86400 30"),
-		},
 	},
 	{ // A TXT request for dns-version should return the version of the kubernetes service discovery spec implemented
 		Qname: "dns-version.cluster.local.", Qtype: dns.TypeTXT,
